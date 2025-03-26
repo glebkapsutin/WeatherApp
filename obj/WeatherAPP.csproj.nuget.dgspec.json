@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/Users/glebkapustin/Desktop/Cods/WeatherAPP/WeatherAPP/WeatherAPP/WeatherAPP.csproj": {}
+    "/Users/glebkapustin/Desktop/Cods/WeatherAPP/WeatherAPP.csproj": {}
   },
   "projects": {
-    "/Users/glebkapustin/Desktop/Cods/WeatherAPP/WeatherAPP/WeatherAPP/WeatherAPP.csproj": {
+    "/Users/glebkapustin/Desktop/Cods/WeatherAPP/WeatherAPP.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/glebkapustin/Desktop/Cods/WeatherAPP/WeatherAPP/WeatherAPP/WeatherAPP.csproj",
+        "projectUniqueName": "/Users/glebkapustin/Desktop/Cods/WeatherAPP/WeatherAPP.csproj",
         "projectName": "WeatherAPP",
-        "projectPath": "/Users/glebkapustin/Desktop/Cods/WeatherAPP/WeatherAPP/WeatherAPP/WeatherAPP.csproj",
+        "projectPath": "/Users/glebkapustin/Desktop/Cods/WeatherAPP/WeatherAPP.csproj",
         "packagesPath": "/Users/glebkapustin/.nuget/packages/",
-        "outputPath": "/Users/glebkapustin/Desktop/Cods/WeatherAPP/WeatherAPP/WeatherAPP/obj/",
+        "outputPath": "/Users/glebkapustin/Desktop/Cods/WeatherAPP/obj/",
         "projectStyle": "PackageReference",
         "crossTargeting": true,
         "configFilePaths": [

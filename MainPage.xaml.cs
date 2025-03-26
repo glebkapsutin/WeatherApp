@@ -1,5 +1,6 @@
 ﻿using Microsoft.Maui.Controls;
 using System;
+using WeatherAPP.ViewModels;
 namespace WeatherAPP
 {
     public partial class MainPage : ContentPage

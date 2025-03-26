@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "KVUfKFTReV8=",
+  "dgSpecHash": "iY5MzOHa8Hw=",
   "success": true,
-  "projectFilePath": "/Users/glebkapustin/Desktop/Cods/WeatherAPP/WeatherAPP/WeatherAPP/WeatherAPP.csproj",
+  "projectFilePath": "/Users/glebkapustin/Desktop/Cods/WeatherAPP/WeatherAPP.csproj",
   "expectedPackageFiles": [
     "/Users/glebkapustin/.nuget/packages/googlegson/2.10.1.4/googlegson.2.10.1.4.nupkg.sha512",
     "/Users/glebkapustin/.nuget/packages/microsoft.extensions.configuration/8.0.0/microsoft.extensions.configuration.8.0.0.nupkg.sha512",

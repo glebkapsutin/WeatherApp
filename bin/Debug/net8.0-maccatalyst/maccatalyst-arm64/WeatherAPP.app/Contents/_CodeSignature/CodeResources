@@ -44,6 +44,42 @@
 		<data>
 		Zt+VE+uuJQUze/d9zd3r+NdrtDw=
 		</data>
+		<key>Resources/forecast.png</key>
+		<data>
+		smXxWqsFq/jK5gVbqkfPVCVgNzE=
+		</data>
+		<key>Resources/forecast@2x.png</key>
+		<data>
+		d+LFNt7n1MWo1uucyGjTXW5Q0YQ=
+		</data>
+		<key>Resources/forecast@3x.png</key>
+		<data>
+		s/PmkZ9DRBHoyKOnP3YNj17LIJQ=
+		</data>
+		<key>Resources/settings.png</key>
+		<data>
+		Ax3AKIWzv8uRzxa0xMz7eC+Vs+0=
+		</data>
+		<key>Resources/settings@2x.png</key>
+		<data>
+		OVoFPFDyqC4DedicKDQKq7j/njg=
+		</data>
+		<key>Resources/settings@3x.png</key>
+		<data>
+		AQ7lRGjoXCnsrYvy7k+GZJb4j/E=
+		</data>
+		<key>Resources/weather.png</key>
+		<data>
+		gQpTsmkiP+4lV/kL+8sQKNcxO7c=
+		</data>
+		<key>Resources/weather@2x.png</key>
+		<data>
+		xvNX6YvVVyhHC5r6mFHRvVQfCkQ=
+		</data>
+		<key>Resources/weather@3x.png</key>
+		<data>
+		e8QWfsVu4UqVrTDnylnRN7XVQ0k=
+		</data>
 	</dict>
 	<key>files2</key>
 	<dict>
@@ -1397,14 +1433,14 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			J+/MfNit2H1I7xVlaWIBiiOTzIMmaUYCCloWnNObug4=
+			ZAoyEQNlVMiCSYu/dvwm1BDbyP9BUYjXkSDNa/jdZNI=
 			</data>
 		</dict>
 		<key>MonoBundle/WeatherAPP.pdb</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			5XNmopoUcVNXJ7UwBpBMJ4cfQBp7/wwvdgPz0BJht0U=
+			l5bMrB2lquKtDDxAe8TTdAcxHbcQIknPA7UGkKpQiTU=
 			</data>
 		</dict>
 		<key>MonoBundle/WindowsBase.dll</key>
@@ -1755,6 +1791,69 @@
 			<key>hash2</key>
 			<data>
 			Up4t4C3+oRoTqJRc+zJSfhbhdg8R3zWbHkE+G9N4B9U=
+			</data>
+		</dict>
+		<key>Resources/forecast.png</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			mc41e5ml8cuPgsGRnnKKiTuaIKI+xrO7PpIjvhTqmRs=
+			</data>
+		</dict>
+		<key>Resources/forecast@2x.png</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			Ds9y2kxSYujVx02eL3czJwF2Z0O+dqybqWN77rZCvQM=
+			</data>
+		</dict>
+		<key>Resources/forecast@3x.png</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			LAjEiwN6K6aREzXbvu0KE6bmU91LuyFWTVztLFezEPU=
+			</data>
+		</dict>
+		<key>Resources/settings.png</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			fHHGXhB+O2WmUcroU8WlMfUOnYp8QDMTcJehHxgtRQc=
+			</data>
+		</dict>
+		<key>Resources/settings@2x.png</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			DssUiSMdw3SgDyFslooh+n/X0ovt8SLeLQU+/YZIOqU=
+			</data>
+		</dict>
+		<key>Resources/settings@3x.png</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			jt6P/ItvG448Zihl4pEteTJXJDFrNFg5QIRkRDPU+ns=
+			</data>
+		</dict>
+		<key>Resources/weather.png</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			nJIwpzKrK9Nw2EY9zawHvgrC13aPnnHN7UJ6hSVM8MQ=
+			</data>
+		</dict>
+		<key>Resources/weather@2x.png</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			iGiaUJ8xvwbcG4UYvw1FfFNgqw/xmTjvXeoxd1B+h8E=
+			</data>
+		</dict>
+		<key>Resources/weather@3x.png</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			JtnnMIIRFVNRAKJX0KFPCOgogRAONisScbMZnagsyTg=
 			</data>
 		</dict>
 	</dict>

@@ -6,10 +6,10 @@
 	<dict>
 		<key>output-files</key>
 		<array>
-			<string>/Users/glebkapustin/Desktop/Cods/WeatherAPP/WeatherAPP/WeatherAPP/obj/Debug/net8.0-ios/iossimulator-arm64/actool/bundle/Assets.car</string>
-			<string>/Users/glebkapustin/Desktop/Cods/WeatherAPP/WeatherAPP/WeatherAPP/obj/Debug/net8.0-ios/iossimulator-arm64/actool/bundle/appicon60x60@2x.png</string>
-			<string>/Users/glebkapustin/Desktop/Cods/WeatherAPP/WeatherAPP/WeatherAPP/obj/Debug/net8.0-ios/iossimulator-arm64/actool/bundle/appicon76x76@2x~ipad.png</string>
-			<string>/Users/glebkapustin/Desktop/Cods/WeatherAPP/WeatherAPP/WeatherAPP/obj/Debug/net8.0-ios/iossimulator-arm64/actool/partial-info.plist</string>
+			<string>/Users/glebkapustin/Desktop/Cods/WeatherAPP/obj/Debug/net8.0-ios/iossimulator-arm64/actool/bundle/Assets.car</string>
+			<string>/Users/glebkapustin/Desktop/Cods/WeatherAPP/obj/Debug/net8.0-ios/iossimulator-arm64/actool/bundle/appicon60x60@2x.png</string>
+			<string>/Users/glebkapustin/Desktop/Cods/WeatherAPP/obj/Debug/net8.0-ios/iossimulator-arm64/actool/bundle/appicon76x76@2x~ipad.png</string>
+			<string>/Users/glebkapustin/Desktop/Cods/WeatherAPP/obj/Debug/net8.0-ios/iossimulator-arm64/actool/partial-info.plist</string>
 		</array>
 	</dict>
 </dict>

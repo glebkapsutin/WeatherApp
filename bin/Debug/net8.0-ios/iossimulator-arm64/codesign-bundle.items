@@ -12,7 +12,7 @@
       <CodesignDisableTimestamp>true</CodesignDisableTimestamp>
       <CodesignKeychain></CodesignKeychain>
       <CodesignUseHardenedRuntime></CodesignUseHardenedRuntime>
-      <SourceProjectPath>/Users/glebkapustin/Desktop/Cods/WeatherAPP/WeatherAPP/WeatherAPP</SourceProjectPath>
+      <SourceProjectPath>/Users/glebkapustin/Desktop/Cods/WeatherAPP</SourceProjectPath>
     </_CodesignBundle>
   </ItemGroup>
 </Project>

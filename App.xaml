@@ -2,6 +2,7 @@
 <Application xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local="clr-namespace:WeatherAPP"
+             xmlns:converters="clr-namespace:WeatherAPP.Converters"
              x:Class="WeatherAPP.App">
              
     <Application.Resources>
@@ -10,6 +11,66 @@
                 <ResourceDictionary Source="Resources/Styles/Colors.xaml" />
                 <ResourceDictionary Source="Resources/Styles/Styles.xaml" />
             </ResourceDictionary.MergedDictionaries>
+
+            <!-- Цвета -->
+            <Color x:Key="PrimaryColor">#512BD4</Color>
+            <Color x:Key="SecondaryColor">#DFD8F7</Color>
+            <Color x:Key="TertiaryColor">#2B0B98</Color>
+            <Color x:Key="TextColor">#FFFFFF</Color>
+            <Color x:Key="Black">#000000</Color>
+            <Color x:Key="Gray100">#F5F5F5</Color>
+            <Color x:Key="Gray200">#EEEEEE</Color>
+            <Color x:Key="Gray300">#E0E0E0</Color>
+            <Color x:Key="Gray400">#BDBDBD</Color>
+            <Color x:Key="Gray500">#9E9E9E</Color>
+            <Color x:Key="Gray600">#757575</Color>
+            <Color x:Key="Gray700">#616161</Color>
+            <Color x:Key="Gray800">#424242</Color>
+            <Color x:Key="Gray900">#212121</Color>
+
+            <!-- Конвертеры -->
+            <converters:InverseBoolConverter x:Key="InverseBoolConverter"/>
+
+            <!-- Стили -->
+            <Style TargetType="Label">
+                <Setter Property="TextColor" Value="{DynamicResource Gray900}"/>
+                <Setter Property="FontFamily" Value="OpenSansRegular"/>
+            </Style>
+
+            <Style TargetType="Entry">
+                <Setter Property="TextColor" Value="{DynamicResource Gray900}"/>
+                <Setter Property="BackgroundColor" Value="{DynamicResource Gray100}"/>
+                <Setter Property="FontFamily" Value="OpenSansRegular"/>
+            </Style>
+
+            <Style TargetType="Button">
+                <Setter Property="TextColor" Value="White"/>
+                <Setter Property="BackgroundColor" Value="{StaticResource PrimaryColor}"/>
+                <Setter Property="FontFamily" Value="OpenSansRegular"/>
+                <Setter Property="CornerRadius" Value="8"/>
+            </Style>
+
+            <Style TargetType="Frame">
+                <Setter Property="BackgroundColor" Value="{DynamicResource Gray100}"/>
+                <Setter Property="CornerRadius" Value="8"/>
+                <Setter Property="Padding" Value="16"/>
+            </Style>
+
+            <!-- Шаблон для пустого состояния -->
+            <DataTemplate x:Key="EmptyStateTemplate">
+                <VerticalStackLayout HorizontalOptions="Center" 
+                                   VerticalOptions="Center" 
+                                   Spacing="20">
+                    <Label Text="Нет данных"
+                           FontSize="24"
+                           FontAttributes="Bold"
+                           TextColor="{DynamicResource Gray600}"/>
+                    <Label Text="Попробуйте обновить данные или проверить подключение к интернету"
+                           FontSize="16"
+                           TextColor="{DynamicResource Gray500}"
+                           HorizontalTextAlignment="Center"/>
+                </VerticalStackLayout>
+            </DataTemplate>
         </ResourceDictionary>
     </Application.Resources>
 </Application>

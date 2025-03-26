@@ -12,36 +12,54 @@ build_property.PlatformNeutralAssembly =
 build_property.EnforceExtendedAnalyzerRules = 
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = WeatherAPP
-build_property.ProjectDir = /Users/glebkapustin/Desktop/Cods/WeatherAPP/WeatherAPP/WeatherAPP/
+build_property.ProjectDir = /Users/glebkapustin/Desktop/Cods/WeatherAPP/
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
 
-[/Users/glebkapustin/Desktop/Cods/WeatherAPP/WeatherAPP/WeatherAPP/App.xaml]
+[/Users/glebkapustin/Desktop/Cods/WeatherAPP/App.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = WeatherAPP.App.xaml
 build_metadata.AdditionalFiles.TargetPath = App.xaml
 build_metadata.AdditionalFiles.RelativePath = App.xaml
 
-[/Users/glebkapustin/Desktop/Cods/WeatherAPP/WeatherAPP/WeatherAPP/AppShell.xaml]
+[/Users/glebkapustin/Desktop/Cods/WeatherAPP/AppShell.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = WeatherAPP.AppShell.xaml
 build_metadata.AdditionalFiles.TargetPath = AppShell.xaml
 build_metadata.AdditionalFiles.RelativePath = AppShell.xaml
 
-[/Users/glebkapustin/Desktop/Cods/WeatherAPP/WeatherAPP/WeatherAPP/MainPage.xaml]
+[/Users/glebkapustin/Desktop/Cods/WeatherAPP/MainPage.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = WeatherAPP.MainPage.xaml
 build_metadata.AdditionalFiles.TargetPath = MainPage.xaml
 build_metadata.AdditionalFiles.RelativePath = MainPage.xaml
 
-[/Users/glebkapustin/Desktop/Cods/WeatherAPP/WeatherAPP/WeatherAPP/Resources/Styles/Colors.xaml]
+[/Users/glebkapustin/Desktop/Cods/WeatherAPP/Resources/Styles/Colors.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = WeatherAPP.Resources.Styles.Colors.xaml
 build_metadata.AdditionalFiles.TargetPath = Resources/Styles/Colors.xaml
 build_metadata.AdditionalFiles.RelativePath = Resources/Styles/Colors.xaml
 
-[/Users/glebkapustin/Desktop/Cods/WeatherAPP/WeatherAPP/WeatherAPP/Resources/Styles/Styles.xaml]
+[/Users/glebkapustin/Desktop/Cods/WeatherAPP/Resources/Styles/Styles.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = WeatherAPP.Resources.Styles.Styles.xaml
 build_metadata.AdditionalFiles.TargetPath = Resources/Styles/Styles.xaml
 build_metadata.AdditionalFiles.RelativePath = Resources/Styles/Styles.xaml
+
+[/Users/glebkapustin/Desktop/Cods/WeatherAPP/Views/CurrentWeatherPage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = WeatherAPP.Views.CurrentWeatherPage.xaml
+build_metadata.AdditionalFiles.TargetPath = Views/CurrentWeatherPage.xaml
+build_metadata.AdditionalFiles.RelativePath = Views/CurrentWeatherPage.xaml
+
+[/Users/glebkapustin/Desktop/Cods/WeatherAPP/Views/ForecastPage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = WeatherAPP.Views.ForecastPage.xaml
+build_metadata.AdditionalFiles.TargetPath = Views/ForecastPage.xaml
+build_metadata.AdditionalFiles.RelativePath = Views/ForecastPage.xaml
+
+[/Users/glebkapustin/Desktop/Cods/WeatherAPP/Views/SettingsPage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = WeatherAPP.Views.SettingsPage.xaml
+build_metadata.AdditionalFiles.TargetPath = Views/SettingsPage.xaml
+build_metadata.AdditionalFiles.RelativePath = Views/SettingsPage.xaml

@@ -31,7 +31,7 @@
                 x:Name="GetWeatherButton"/>
 
             <Button
-                Text="Погода на неделю"
+                Text="Погода на 3 дня"
                 Command="{Binding GetForecastCommand}"
                 BackgroundColor="{StaticResource PrimaryColor}"
                 TextColor="{StaticResource TextColor}"
@@ -82,38 +82,38 @@
         <StackLayout Orientation="Horizontal" VerticalOptions="CenterAndExpand" Spacing="10">
             <Image
                 Source="{Binding Icon}"
-                WidthRequest="100"
-                HeightRequest="100"
+                WidthRequest="80"
+                HeightRequest="80"
                 x:Name="WeatherIcon"/>
             <StackLayout>
                 <Label
                     Text="{Binding Description}"
-                    FontSize="40"
+                    FontSize="35"
                     TextColor="{StaticResource PrimaryColor}"
                     x:Name="WeatherDescription"/>
                 <Label
                     Text="{Binding Temperature}"
-                    FontSize="30"
+                    FontSize="25"
                     TextColor="{StaticResource Tertiary}"
                     x:Name="TemperatureLabel"/>
                 <Label
                     Text="{Binding Feelslike}"
-                    FontSize="28"
+                    FontSize="23"
                     TextColor="{StaticResource Tertiary}"
                     x:Name="FeelslikeLabel"/>
                 <Label
                     Text="{Binding Humidity}"
-                    FontSize="28"
+                    FontSize="23"
                     TextColor="{StaticResource Tertiary}"
                     x:Name="HumidityLabel"/>
                 <Label
                     Text="{Binding WindKph}"
-                    FontSize="28"
+                    FontSize="23"
                     TextColor="{StaticResource Tertiary}"
                     x:Name="WindKphLabel"/>
                 <Label
                     Text="{Binding Cloud}"
-                    FontSize="28"
+                    FontSize="23"
                     TextColor="{StaticResource Tertiary}"
                     x:Name="CloudLabel"/>
             </StackLayout>

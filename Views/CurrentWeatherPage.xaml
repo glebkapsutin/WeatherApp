@@ -1,0 +1,253 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="WeatherAPP.Views.CurrentWeatherPage"
+             BackgroundColor="{Binding BackgroundColor}">
+
+    <ContentPage.Resources>
+        <Style x:Key="CardStyle" TargetType="Frame">
+            <Setter Property="Padding" Value="20" />
+            <Setter Property="Margin" Value="0,8" />
+            <Setter Property="CornerRadius" Value="16" />
+            <Setter Property="BackgroundColor" Value="{Binding CardBackgroundColor}" />
+            <Setter Property="HasShadow" Value="True" />
+            <Setter Property="BorderColor" Value="Transparent" />
+        </Style>
+        
+        <Style x:Key="HeaderStyle" TargetType="Label">
+            <Setter Property="FontSize" Value="20" />
+            <Setter Property="FontAttributes" Value="Bold" />
+            <Setter Property="TextColor" Value="{Binding TextColor}" />
+        </Style>
+        
+        <Style x:Key="SubHeaderStyle" TargetType="Label">
+            <Setter Property="FontSize" Value="16" />
+            <Setter Property="TextColor" Value="{Binding TextColor}" />
+            <Setter Property="Opacity" Value="0.8" />
+        </Style>
+        
+        <Style x:Key="TemperatureStyle" TargetType="Label">
+            <Setter Property="FontSize" Value="64" />
+            <Setter Property="FontAttributes" Value="Bold" />
+            <Setter Property="TextColor" Value="{Binding TextColor}" />
+        </Style>
+
+        <Style x:Key="InfoItemStyle" TargetType="Border">
+            <Setter Property="StrokeShape" Value="RoundRectangle 16" />
+            <Setter Property="Padding" Value="16" />
+            <Setter Property="BackgroundColor" Value="{Binding CardBackgroundColor}" />
+            <Setter Property="Opacity" Value="0.9" />
+            <Setter Property="Stroke" Value="Transparent" />
+        </Style>
+        
+        <Style x:Key="SearchEntryStyle" TargetType="Entry">
+            <Setter Property="FontSize" Value="16" />
+            <Setter Property="TextColor" Value="{Binding TextColor}" />
+            <Setter Property="BackgroundColor" Value="Transparent" />
+            <Setter Property="PlaceholderColor" Value="{Binding TextColor}" />
+            <Setter Property="Opacity" Value="0.8" />
+        </Style>
+        
+        <Style x:Key="ActionButtonStyle" TargetType="Button">
+            <Setter Property="CornerRadius" Value="24" />
+            <Setter Property="HeightRequest" Value="48" />
+            <Setter Property="Padding" Value="20,0" />
+            <Setter Property="FontAttributes" Value="Bold" />
+        </Style>
+    </ContentPage.Resources>
+
+    <ScrollView>
+        <Grid RowDefinitions="Auto,Auto,Auto,Auto,Auto" Padding="20" RowSpacing="20">
+            <!-- Заголовок -->
+            <Label Grid.Row="0"
+                   Text="Погода сейчас" 
+                   FontSize="32" 
+                   FontAttributes="Bold"
+                   TextColor="{Binding TextColor}"
+                   HorizontalOptions="Center"
+                   Margin="0,10,0,0"/>
+                   
+            <!-- Поиск города -->
+            <Border Grid.Row="1"
+                   StrokeShape="RoundRectangle 20"
+                   StrokeThickness="0"
+                   BackgroundColor="{Binding CardBackgroundColor}"
+                   Opacity="0.95"
+                   Padding="4">
+                <Grid ColumnDefinitions="*,Auto" Padding="12">
+                    <Entry Grid.Column="0" 
+                           Placeholder="Введите название города"
+                           Text="{Binding CityName}"
+                           Style="{StaticResource SearchEntryStyle}"
+                           VerticalOptions="Center"/>
+                    <Button Grid.Column="1"
+                            Text="Найти"
+                            Command="{Binding GetWeatherCommand}"
+                            Style="{StaticResource ActionButtonStyle}"
+                            VerticalOptions="Center"
+                            Margin="8,0,0,0"/>
+                </Grid>
+            </Border>
+
+            <!-- Основная информация о погоде -->
+            <Frame Grid.Row="2" Style="{StaticResource CardStyle}">
+                <Grid RowDefinitions="Auto,Auto,Auto" RowSpacing="20">
+                    <!-- Город -->
+                    <Label Grid.Row="0"
+                           Text="{Binding CityName}"
+                           FontSize="26"
+                           FontAttributes="Bold"
+                           TextColor="{Binding TextColor}"
+                           HorizontalOptions="Center"/>
+                    
+                    <!-- Температура и условия -->
+                    <VerticalStackLayout Grid.Row="1" Spacing="8" HorizontalOptions="Center">
+                        <Label Text="{Binding Temperature}"
+                               Style="{StaticResource TemperatureStyle}"
+                               HorizontalOptions="Center"/>
+                               
+                        <HorizontalStackLayout Spacing="8" HorizontalOptions="Center">
+                            <Image Source="{Binding Icon}"
+                                   HeightRequest="30"
+                                   WidthRequest="30"
+                                   VerticalOptions="Center"/>
+                            <Label Text="{Binding Description}"
+                                   Style="{StaticResource SubHeaderStyle}"
+                                   FontSize="20"
+                                   VerticalOptions="Center"/>
+                        </HorizontalStackLayout>
+                    </VerticalStackLayout>
+                    
+                    <!-- Дополнительная информация в линию -->
+                    <Grid Grid.Row="2" 
+                          ColumnDefinitions="*,*,*" 
+                          ColumnSpacing="16" 
+                          Margin="0,10,0,0">
+                        <VerticalStackLayout Grid.Column="0" HorizontalOptions="Center">
+                            <Label Text="Ощущается"
+                                   FontSize="14"
+                                   TextColor="{Binding TextColor}"
+                                   Opacity="0.7"
+                                   HorizontalOptions="Center"/>
+                            <Label Text="{Binding FeelsLike}"
+                                   FontSize="18"
+                                   FontAttributes="Bold"
+                                   TextColor="{Binding TextColor}"
+                                   HorizontalOptions="Center"/>
+                        </VerticalStackLayout>
+                        
+                        <VerticalStackLayout Grid.Column="1" HorizontalOptions="Center">
+                            <Label Text="Влажность"
+                                   FontSize="14"
+                                   TextColor="{Binding TextColor}"
+                                   Opacity="0.7"
+                                   HorizontalOptions="Center"/>
+                            <Label Text="{Binding Humidity}"
+                                   FontSize="18"
+                                   FontAttributes="Bold"
+                                   TextColor="{Binding TextColor}"
+                                   HorizontalOptions="Center"/>
+                        </VerticalStackLayout>
+                        
+                        <VerticalStackLayout Grid.Column="2" HorizontalOptions="Center">
+                            <Label Text="Ветер"
+                                   FontSize="14"
+                                   TextColor="{Binding TextColor}"
+                                   Opacity="0.7"
+                                   HorizontalOptions="Center"/>
+                            <Label Text="{Binding WindKph}"
+                                   FontSize="18"
+                                   FontAttributes="Bold"
+                                   TextColor="{Binding TextColor}"
+                                   HorizontalOptions="Center"/>
+                        </VerticalStackLayout>
+                    </Grid>
+                </Grid>
+            </Frame>
+
+            <!-- Анимация погоды -->
+            <ContentView Grid.Row="3" 
+                         Content="{Binding WeatherAnim}" 
+                         HeightRequest="200"
+                         BackgroundColor="Transparent"
+                         Margin="0,10,0,0"/>
+
+            <!-- Дополнительная информация -->
+            <Grid Grid.Row="4" 
+                  ColumnDefinitions="*,*" 
+                  RowDefinitions="Auto,Auto" 
+                  RowSpacing="16" 
+                  ColumnSpacing="16">
+                
+                <Border Grid.Row="0" Grid.Column="0" Style="{StaticResource InfoItemStyle}">
+                    <VerticalStackLayout Spacing="8" Padding="4" HorizontalOptions="Center">
+                        <Label Text="Ощущается как"
+                               FontSize="14"
+                               TextColor="{Binding TextColor}"
+                               Opacity="0.6"
+                               HorizontalOptions="Center"/>
+                        <Label Text="{Binding FeelsLike}"
+                               FontSize="20"
+                               FontAttributes="Bold"
+                               TextColor="{Binding TextColor}"
+                               HorizontalOptions="Center"/>
+                    </VerticalStackLayout>
+                </Border>
+
+                <Border Grid.Row="0" Grid.Column="1" Style="{StaticResource InfoItemStyle}">
+                    <VerticalStackLayout Spacing="8" Padding="4" HorizontalOptions="Center">
+                        <Label Text="Влажность"
+                               FontSize="14"
+                               TextColor="{Binding TextColor}"
+                               Opacity="0.6"
+                               HorizontalOptions="Center"/>
+                        <Label Text="{Binding Humidity}"
+                               FontSize="20"
+                               FontAttributes="Bold"
+                               TextColor="{Binding TextColor}"
+                               HorizontalOptions="Center"/>
+                    </VerticalStackLayout>
+                </Border>
+
+                <Border Grid.Row="1" Grid.Column="0" Style="{StaticResource InfoItemStyle}">
+                    <VerticalStackLayout Spacing="8" Padding="4" HorizontalOptions="Center">
+                        <Label Text="Ветер"
+                               FontSize="14"
+                               TextColor="{Binding TextColor}"
+                               Opacity="0.6"
+                               HorizontalOptions="Center"/>
+                        <Label Text="{Binding WindKph}"
+                               FontSize="20"
+                               FontAttributes="Bold"
+                               TextColor="{Binding TextColor}"
+                               HorizontalOptions="Center"/>
+                    </VerticalStackLayout>
+                </Border>
+
+                <Border Grid.Row="1" Grid.Column="1" Style="{StaticResource InfoItemStyle}">
+                    <VerticalStackLayout Spacing="8" Padding="4" HorizontalOptions="Center">
+                        <Label Text="Облачность"
+                               FontSize="14"
+                               TextColor="{Binding TextColor}"
+                               Opacity="0.6"
+                               HorizontalOptions="Center"/>
+                        <Label Text="{Binding Cloud}"
+                               FontSize="20"
+                               FontAttributes="Bold"
+                               TextColor="{Binding TextColor}"
+                               HorizontalOptions="Center"/>
+                    </VerticalStackLayout>
+                </Border>
+            </Grid>
+
+            <!-- Сообщение об ошибке -->
+            <Label Grid.Row="5"
+                   Text="{Binding ErrorMessage}"
+                   FontSize="16"
+                   TextColor="Red"
+                   IsVisible="{Binding IsErrorVisible}"
+                   HorizontalOptions="Center"
+                   Margin="0,16,0,0"/>
+        </Grid>
+    </ScrollView>
+</ContentPage> 

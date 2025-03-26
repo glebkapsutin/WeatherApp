@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:WeatherAPP.ViewModels"
+             x:Class="WeatherAPP.Views.SettingsPage"
+             Title="Настройки">
+
+    <ContentPage.BindingContext>
+        <vm:SettingsViewModel/>
+    </ContentPage.BindingContext>
+
+    <ScrollView>
+        <VerticalStackLayout Spacing="20" Padding="20">
+            <!-- Тема приложения -->
+            <Frame>
+                <VerticalStackLayout Spacing="10">
+                    <Label Text="Тема приложения" 
+                           FontSize="18" 
+                           FontAttributes="Bold"/>
+                    
+                    <HorizontalStackLayout Spacing="10">
+                        <RadioButton Content="Светлая" 
+                                   IsChecked="{Binding IsDarkTheme, Converter={StaticResource InverseBoolConverter}}"
+                                   GroupName="Theme"/>
+                        <RadioButton Content="Темная" 
+                                   IsChecked="{Binding IsDarkTheme}"
+                                   GroupName="Theme"/>
+                    </HorizontalStackLayout>
+                </VerticalStackLayout>
+            </Frame>
+
+            <!-- Язык -->
+            <Frame>
+                <VerticalStackLayout Spacing="10">
+                    <Label Text="Язык" 
+                           FontSize="18" 
+                           FontAttributes="Bold"/>
+                    
+                    <Picker Title="Выберите язык"
+                            SelectedItem="{Binding SelectedLanguage}">
+                        <Picker.Items>
+                            <x:String>ru</x:String>
+                            <x:String>en</x:String>
+                        </Picker.Items>
+                        <Picker.SelectedIndex>0</Picker.SelectedIndex>
+                    </Picker>
+                </VerticalStackLayout>
+            </Frame>
+
+            <!-- Единицы измерения температуры -->
+            <Frame>
+                <VerticalStackLayout Spacing="10">
+                    <Label Text="Единицы измерения температуры" 
+                           FontSize="18" 
+                           FontAttributes="Bold"/>
+                    
+                    <Picker Title="Выберите единицы измерения"
+                            SelectedItem="{Binding SelectedTemperatureUnit}">
+                        <Picker.Items>
+                            <x:String>celsius</x:String>
+                            <x:String>fahrenheit</x:String>
+                        </Picker.Items>
+                        <Picker.SelectedIndex>0</Picker.SelectedIndex>
+                    </Picker>
+                </VerticalStackLayout>
+            </Frame>
+
+            <!-- Информация о приложении -->
+            <Frame>
+                <VerticalStackLayout Spacing="10">
+                    <Label Text="О приложении" 
+                           FontSize="18" 
+                           FontAttributes="Bold"/>
+                    
+                    <Label Text="Версия: 1.0.0"/>
+                    <Label Text="© 2024 WeatherAPP"/>
+                </VerticalStackLayout>
+            </Frame>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage> 
