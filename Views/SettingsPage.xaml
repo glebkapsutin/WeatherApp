@@ -11,14 +11,45 @@
 
     <ScrollView>
         <VerticalStackLayout Spacing="20" Padding="20">
-            <!-- Тема приложения -->
-            <Frame>
-                <VerticalStackLayout Spacing="10">
-                    <Label Text="Тема приложения" 
-                           FontSize="18" 
-                           FontAttributes="Bold"/>
+            <!-- О проекте -->
+            <Frame BorderColor="{AppThemeBinding Light={StaticResource Gray300}, Dark={StaticResource Gray600}}"
+                   BackgroundColor="{AppThemeBinding Light={StaticResource White}, Dark={StaticResource Gray900}}"
+                   CornerRadius="10"
+                   HasShadow="True">
+                <VerticalStackLayout Spacing="15">
+                    <Label Text="О проекте" 
+                           FontSize="20" 
+                           FontAttributes="Bold"
+                           TextColor="{AppThemeBinding Light={StaticResource Primary}, Dark={StaticResource White}}"/>
                     
-                    <HorizontalStackLayout Spacing="10">
+                    <Label Text="WeatherAPP - современное погодное приложение, разработанное с использованием .NET MAUI. Приложение предоставляет актуальную информацию о погоде и прогноз на 7 дней для любого города мира."
+                           FontSize="14"
+                           TextColor="{AppThemeBinding Light={StaticResource Gray700}, Dark={StaticResource Gray300}}"
+                           LineBreakMode="WordWrap"/>
+                    
+                    <Label Text="{Binding AppVersion, StringFormat='Версия: {0}'}"
+                           FontSize="16"/>
+                    <Label Text="© 2024 WeatherAPP"
+                           FontSize="14"
+                           TextColor="{AppThemeBinding Light={StaticResource Gray500}, Dark={StaticResource Gray400}}"/>
+                </VerticalStackLayout>
+            </Frame>
+
+            <!-- Внешний вид -->
+            <Frame BorderColor="{AppThemeBinding Light={StaticResource Gray300}, Dark={StaticResource Gray600}}"
+                   BackgroundColor="{AppThemeBinding Light={StaticResource White}, Dark={StaticResource Gray900}}"
+                   CornerRadius="10"
+                   HasShadow="True">
+                <VerticalStackLayout Spacing="15">
+                    <Label Text="Внешний вид" 
+                           FontSize="20" 
+                           FontAttributes="Bold"
+                           TextColor="{AppThemeBinding Light={StaticResource Primary}, Dark={StaticResource White}}"/>
+                    
+                    <Label Text="Тема приложения" 
+                           FontSize="16"/>
+                    
+                    <HorizontalStackLayout Spacing="15">
                         <RadioButton Content="Светлая" 
                                    IsChecked="{Binding IsDarkTheme, Converter={StaticResource InverseBoolConverter}}"
                                    GroupName="Theme"/>
@@ -29,51 +60,28 @@
                 </VerticalStackLayout>
             </Frame>
 
-            <!-- Язык -->
-            <Frame>
-                <VerticalStackLayout Spacing="10">
-                    <Label Text="Язык" 
-                           FontSize="18" 
-                           FontAttributes="Bold"/>
+            <!-- Единицы измерения -->
+            <Frame BorderColor="{AppThemeBinding Light={StaticResource Gray300}, Dark={StaticResource Gray600}}"
+                   BackgroundColor="{AppThemeBinding Light={StaticResource White}, Dark={StaticResource Gray900}}"
+                   CornerRadius="10"
+                   HasShadow="True">
+                <VerticalStackLayout Spacing="15">
+                    <Label Text="Единицы измерения" 
+                           FontSize="20" 
+                           FontAttributes="Bold"
+                           TextColor="{AppThemeBinding Light={StaticResource Primary}, Dark={StaticResource White}}"/>
                     
-                    <Picker Title="Выберите язык"
-                            SelectedItem="{Binding SelectedLanguage}">
-                        <Picker.Items>
-                            <x:String>ru</x:String>
-                            <x:String>en</x:String>
-                        </Picker.Items>
-                        <Picker.SelectedIndex>0</Picker.SelectedIndex>
-                    </Picker>
-                </VerticalStackLayout>
-            </Frame>
-
-            <!-- Единицы измерения температуры -->
-            <Frame>
-                <VerticalStackLayout Spacing="10">
-                    <Label Text="Единицы измерения температуры" 
-                           FontSize="18" 
-                           FontAttributes="Bold"/>
+                    <Label Text="Температура" 
+                           FontSize="16"/>
                     
-                    <Picker Title="Выберите единицы измерения"
-                            SelectedItem="{Binding SelectedTemperatureUnit}">
-                        <Picker.Items>
-                            <x:String>celsius</x:String>
-                            <x:String>fahrenheit</x:String>
-                        </Picker.Items>
-                        <Picker.SelectedIndex>0</Picker.SelectedIndex>
-                    </Picker>
-                </VerticalStackLayout>
-            </Frame>
-
-            <!-- Информация о приложении -->
-            <Frame>
-                <VerticalStackLayout Spacing="10">
-                    <Label Text="О приложении" 
-                           FontSize="18" 
-                           FontAttributes="Bold"/>
-                    
-                    <Label Text="Версия: 1.0.0"/>
-                    <Label Text="© 2024 WeatherAPP"/>
+                    <HorizontalStackLayout Spacing="15">
+                        <RadioButton Content="Цельсий (°C)" 
+                                   IsChecked="{Binding IsCelsius}"
+                                   GroupName="Temperature"/>
+                        <RadioButton Content="Фаренгейт (°F)" 
+                                   IsChecked="{Binding IsFahrenheit}"
+                                   GroupName="Temperature"/>
+                    </HorizontalStackLayout>
                 </VerticalStackLayout>
             </Frame>
         </VerticalStackLayout>

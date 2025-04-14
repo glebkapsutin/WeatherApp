@@ -27,9 +27,29 @@
         </Style>
         
         <Style x:Key="TemperatureStyle" TargetType="Label">
-            <Setter Property="FontSize" Value="22" />
+            <Setter Property="FontSize" Value="24" />
             <Setter Property="FontAttributes" Value="Bold" />
             <Setter Property="TextColor" Value="{Binding TextColor}" />
+        </Style>
+        
+        <Style x:Key="TemperatureLabelStyle" TargetType="Label">
+            <Setter Property="FontSize" Value="16" />
+            <Setter Property="TextColor" Value="{AppThemeBinding Light={StaticResource Gray600}, Dark={StaticResource Gray300}}" />
+            <Setter Property="Opacity" Value="0.9" />
+        </Style>
+        
+        <!-- Стиль для показателей погоды -->
+        <Style x:Key="WeatherDetailValueStyle" TargetType="Label">
+            <Setter Property="FontSize" Value="16" />
+            <Setter Property="FontAttributes" Value="Bold" />
+            <Setter Property="TextColor" Value="{AppThemeBinding Light={StaticResource White}, Dark={StaticResource White}}" />
+        </Style>
+        
+        <!-- Стиль для текста условий погоды -->
+        <Style x:Key="WeatherConditionStyle" TargetType="Label">
+            <Setter Property="FontSize" Value="16" />
+            <Setter Property="FontAttributes" Value="Italic" />
+            <Setter Property="TextColor" Value="{AppThemeBinding Light={StaticResource Gray800}, Dark={StaticResource Gray200}}" />
         </Style>
     </ContentPage.Resources>
 
@@ -83,10 +103,7 @@
                                 <StackLayout Grid.Row="0" Grid.Column="0" Orientation="Horizontal" Spacing="8">
                                     <Label Text="{Binding DateString, StringFormat='{0:dd MMM}'}" 
                                            Style="{StaticResource HeaderStyle}" />
-                                    <Label Text="•" 
-                                           Style="{StaticResource SubHeaderStyle}" />
-                                    <Label Text="{Binding DateString}" 
-                                           Style="{StaticResource SubHeaderStyle}" />
+                                   
                                 </StackLayout>
                                 
                                 <!-- Иконка погоды -->
@@ -99,7 +116,7 @@
                                 <!-- Условия погоды -->
                                 <Label Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2"
                                        Text="{Binding Day.Condition.Text}"
-                                       Style="{StaticResource SubHeaderStyle}" />
+                                       Style="{StaticResource WeatherConditionStyle}" />
                                 
                                 <!-- Температура и детали -->
                                 <Grid Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" 
@@ -107,30 +124,48 @@
                                     
                                     <!-- Максимальная температура -->
                                     <StackLayout Grid.Column="0" Spacing="4">
-                                        <Label Text="Макс" Style="{StaticResource SubHeaderStyle}" Opacity="0.6" />
-                                        <Label Text="{Binding Day.MaxTemp_C, StringFormat='{0:F0}°'}" 
-                                               Style="{StaticResource TemperatureStyle}" />
+                                        <Label Text="Макс" Style="{StaticResource TemperatureLabelStyle}" />
+                                        <Label Style="{StaticResource TemperatureLabelStyle}">
+                                            <Label.FormattedText>
+                                                <FormattedString>
+                                                    <Span Text="{Binding Day.DisplayMaxTemp_C, StringFormat='{0:F0}'}" 
+                                                          TextColor="{AppThemeBinding Light=White, Dark=White}"
+                                                          FontSize="24"
+                                                          FontAttributes="Bold"/>
+                                                    <Span Text="{Binding Day.DisplayUnit}" 
+                                                          TextColor="{AppThemeBinding Light=White, Dark=White}"
+                                                          FontSize="24"
+                                                          FontAttributes="Bold"/>
+                                                </FormattedString>
+                                            </Label.FormattedText>
+                                        </Label>
                                     </StackLayout>
                                     
                                     <!-- Минимальная температура -->
                                     <StackLayout Grid.Column="1" Spacing="4">
-                                        <Label Text="Мин" Style="{StaticResource SubHeaderStyle}" Opacity="0.6" />
-                                        <Label Text="{Binding Day.MinTemp_C, StringFormat='{0:F0}°'}" 
-                                               Style="{StaticResource TemperatureStyle}" />
+                                        <Label Text="Мин" Style="{StaticResource TemperatureLabelStyle}" />
+                                        <Label Style="{StaticResource TemperatureLabelStyle}">
+                                            <Label.FormattedText>
+                                                <FormattedString>
+                                                    <Span Text="{Binding Day.DisplayMinTemp_C, StringFormat='{0:F0}'}" TextColor="{AppThemeBinding Light=White, Dark=White}" FontSize="24" FontAttributes="Bold"/>
+                                                    <Span Text="{Binding Day.DisplayUnit}" TextColor="{AppThemeBinding Light=White, Dark=White}" FontSize="24" FontAttributes="Bold"/>
+                                                </FormattedString>
+                                            </Label.FormattedText>
+                                        </Label>
                                     </StackLayout>
                                     
                                     <!-- Детали (ветер, влажность) -->
                                     <StackLayout Grid.Column="2" HorizontalOptions="End" Orientation="Horizontal" Spacing="12">
                                         <StackLayout Spacing="4">
-                                            <Label Text="Ветер" Style="{StaticResource SubHeaderStyle}" Opacity="0.6" />
+                                            <Label Text="Ветер" Style="{StaticResource TemperatureLabelStyle}" />
                                             <Label Text="{Binding Day.MaxWind_Kph, StringFormat='{0:F0} км/ч'}" 
-                                                   Style="{StaticResource SubHeaderStyle}" />
+                                                   Style="{StaticResource WeatherDetailValueStyle}" />
                                         </StackLayout>
                                         
                                         <StackLayout Spacing="4">
-                                            <Label Text="Влажность" Style="{StaticResource SubHeaderStyle}" Opacity="0.6" />
+                                            <Label Text="Влажность" Style="{StaticResource TemperatureLabelStyle}" />
                                             <Label Text="{Binding Day.Avghumidity, StringFormat='{0:F0}%'}" 
-                                                   Style="{StaticResource SubHeaderStyle}" />
+                                                   Style="{StaticResource WeatherDetailValueStyle}" />
                                         </StackLayout>
                                     </StackLayout>
                                 </Grid>

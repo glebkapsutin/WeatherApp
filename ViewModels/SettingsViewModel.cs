@@ -2,96 +2,65 @@ using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using Microsoft.Maui.Controls;
+using Microsoft.Maui.Storage;
+using WeatherAPP.ViewModels;
 
 namespace WeatherAPP.ViewModels
 {
-    public class ThemeOption
-    {
-        public string Name { get; set; } = string.Empty;
-        public string Value { get; set; } = string.Empty;
-    }
-
     public class TemperatureUnit
     {
         public string Name { get; set; } = string.Empty;
         public string Value { get; set; } = string.Empty;
+        public string Symbol { get; set; } = string.Empty;
     }
 
     public class SettingsViewModel : INotifyPropertyChanged
     {
-        private ThemeOption _selectedTheme = new();
-        private TemperatureUnit _selectedTemperatureUnit = new();
-        private bool _notificationsEnabled;
-        private bool _rainNotificationsEnabled;
+        private readonly IPreferences _preferences;
+        private readonly WeatherUImodel _weatherModel;
         private string _appVersion = string.Empty;
         private bool _isDarkTheme;
-        private string _selectedLanguage = string.Empty;
-
-        public ObservableCollection<ThemeOption> Themes { get; } = new()
-        {
-            new ThemeOption { Name = "Светлая", Value = "Light" },
-            new ThemeOption { Name = "Темная", Value = "Dark" },
-            new ThemeOption { Name = "Системная", Value = "System" }
-        };
+        private bool _isCelsius = true;
 
         public ObservableCollection<TemperatureUnit> TemperatureUnits { get; } = new()
         {
-            new TemperatureUnit { Name = "Цельсий", Value = "C" },
-            new TemperatureUnit { Name = "Фаренгейт", Value = "F" }
+            new TemperatureUnit { Name = "Цельсий", Value = "C", Symbol = "°C" },
+            new TemperatureUnit { Name = "Фаренгейт", Value = "F", Symbol = "°F" },
+            new TemperatureUnit { Name = "Кельвин", Value = "K", Symbol = "K" }
         };
 
-        public ThemeOption SelectedTheme
+        public bool IsCelsius
         {
-            get => _selectedTheme;
+            get => _isCelsius;
             set
             {
-                if (_selectedTheme != value)
+                if (_isCelsius != value)
                 {
-                    _selectedTheme = value;
+                    _isCelsius = value;
+                    _preferences.Set("temperature_unit", value ? "C" : "F");
                     OnPropertyChanged();
-                    // Здесь можно добавить логику изменения темы
+                    OnPropertyChanged(nameof(IsFahrenheit));
+                    
+                    // Обновляем данные погоды при смене единиц измерения
+                    RefreshWeatherData();
                 }
             }
         }
 
-        public TemperatureUnit SelectedTemperatureUnit
+        public bool IsFahrenheit
         {
-            get => _selectedTemperatureUnit;
+            get => !_isCelsius;
             set
             {
-                if (_selectedTemperatureUnit != value)
+                if (!_isCelsius != value)
                 {
-                    _selectedTemperatureUnit = value;
+                    _isCelsius = !value;
+                    _preferences.Set("temperature_unit", value ? "F" : "C");
                     OnPropertyChanged();
-                    // Здесь можно добавить логику изменения единиц измерения
-                }
-            }
-        }
-
-        public bool NotificationsEnabled
-        {
-            get => _notificationsEnabled;
-            set
-            {
-                if (_notificationsEnabled != value)
-                {
-                    _notificationsEnabled = value;
-                    OnPropertyChanged();
-                    // Здесь можно добавить логику включения/выключения уведомлений
-                }
-            }
-        }
-
-        public bool RainNotificationsEnabled
-        {
-            get => _rainNotificationsEnabled;
-            set
-            {
-                if (_rainNotificationsEnabled != value)
-                {
-                    _rainNotificationsEnabled = value;
-                    OnPropertyChanged();
-                    // Здесь можно добавить логику включения/выключения уведомлений о дожде
+                    OnPropertyChanged(nameof(IsCelsius));
+                    
+                    // Обновляем данные погоды при смене единиц измерения
+                    RefreshWeatherData();
                 }
             }
         }
@@ -117,22 +86,9 @@ namespace WeatherAPP.ViewModels
                 if (_isDarkTheme != value)
                 {
                     _isDarkTheme = value;
+                    _preferences.Set("is_dark_theme", value);
+                    OnPropertyChanged();
                     Application.Current.UserAppTheme = value ? AppTheme.Dark : AppTheme.Light;
-                    OnPropertyChanged();
-                }
-            }
-        }
-
-        public string SelectedLanguage
-        {
-            get => _selectedLanguage;
-            set
-            {
-                if (_selectedLanguage != value)
-                {
-                    _selectedLanguage = value;
-                    // Здесь будет логика изменения языка
-                    OnPropertyChanged();
                 }
             }
         }
@@ -141,18 +97,28 @@ namespace WeatherAPP.ViewModels
 
         public SettingsViewModel()
         {
-            // Загрузка сохраненных настроек
+            _preferences = Preferences.Default;
+            
+            // Получаем экземпляр WeatherUImodel через DI
+            _weatherModel = Application.Current.Handler.MauiContext.Services.GetService<WeatherUImodel>();
+            
             LoadSettings();
         }
 
         private void LoadSettings()
         {
-            // Здесь будет загрузка настроек из хранилища
-            SelectedTheme = Themes.FirstOrDefault(t => t.Value == "System") ?? Themes[0];
-            SelectedTemperatureUnit = TemperatureUnits[0];
-            AppVersion = "1.0.0";
-            IsDarkTheme = Application.Current.UserAppTheme == AppTheme.Dark;
-            SelectedLanguage = "ru"; // По умолчанию русский
+            IsCelsius = _preferences.Get("temperature_unit", "C") == "C";
+            IsDarkTheme = _preferences.Get("is_dark_theme", false);
+            AppVersion = AppInfo.Current.VersionString;
+        }
+        
+        private void RefreshWeatherData()
+        {
+            // Если модель существует, обновляем данные
+            if (_weatherModel != null)
+            {
+                _weatherModel.RefreshWeatherDisplay();
+            }
         }
 
         protected virtual void OnPropertyChanged([CallerMemberName] string? propertyName = null)

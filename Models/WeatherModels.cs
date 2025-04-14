@@ -121,5 +121,17 @@ namespace WeatherAPP.Models
 
         [JsonProperty("condition")]
         public Condition Condition { get; set; }
+
+        [JsonIgnore]
+        public double DisplayMaxTemp_C { get; set; }
+
+        [JsonIgnore]
+        public double DisplayMinTemp_C { get; set; }
+
+        [JsonIgnore]
+        public double DisplayAvgTemp_C { get; set; }
+
+        [JsonIgnore]
+        public string DisplayUnit { get; set; } = "°C";
     }
 } 
